@@ -1,4 +1,3 @@
-docker rm instancia1
-docker rm instancia2
-docker rm middleware
+docker stop instancia1 instancia2 middleware
+docker rm instancia1 instancia2 middleware
 docker rmi instancias
