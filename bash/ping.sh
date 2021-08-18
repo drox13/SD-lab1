@@ -1,2 +1,2 @@
-curl -I 172.17.0.2:8000/status | cat - /home/lab1/SD-lab1/Milldware/server1.txt > temp && mv temp /home/lab1/SD-lab1/Milldware/server1.txt
-curl -I 172.17.0.3:8000/status | cat - /home/lab1/SD-lab1/Milldware/server2.txt > temp && mv temp /home/lab1/SD-lab1/Milldware/server2.txt
+curl -I 172.17.0.2:8000 | cat - /home/lab1/SD-lab1/Milldware/server1.txt > temp && mv temp /home/lab1/SD-lab1/Milldware/server1.txt
+curl -I 172.17.0.3:8000 | cat - /home/lab1/SD-lab1/Milldware/server2.txt > temp && mv temp /home/lab1/SD-lab1/Milldware/server2.txt
