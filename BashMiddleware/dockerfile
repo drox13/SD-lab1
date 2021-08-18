@@ -18,4 +18,4 @@ WORKDIR /home/lab1/SD-lab1
 RUN npm install
 
 EXPOSE 8000
-CMD ["node", "index.js"]
+CMD ["node", "app.js"]
