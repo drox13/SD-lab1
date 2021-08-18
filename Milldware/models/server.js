@@ -1,10 +1,11 @@
 const express = require('express')
+const PORT = 8000;
 
 class Server {
 
     constructor(){
         this.app = express();
-        this.port = process.env.PORT;
+        this.port = PORT;
 
         this.middleware();
 
