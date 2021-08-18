@@ -5,3 +5,4 @@ cd ..
 cd BashMiddleware
 docker build -t middlewareimage .
 docker run -d --name middleware -p 8001:8000 middlewareimage
+docker exec -it middleware bash
