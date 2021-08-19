@@ -1,3 +1,5 @@
+const shell = require('shelljs')
+
 function writeLogs() {
 	setInterval(() => {
 		shell.exec('/home/lab1/SD-lab1/bash/ping.sh');
