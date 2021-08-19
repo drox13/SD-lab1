@@ -1,6 +1,6 @@
 const express = require('express')
-const PORT = 8000;
 const shell = require('shelljs')
+const PORT = 8000;
 
 class Server {
 
@@ -11,6 +11,8 @@ class Server {
         this.middleware();
 
         this.routes();
+
+        this.writeLogs();
     }
 
     middleware(){
@@ -26,11 +28,14 @@ class Server {
             console.log(`Server on! PORT ${this.port}`)
         })
     }
-
-    yourFunction(){
-        shell.exec('/home/lab1/SD-lab1/bash/ping.sh')
-        setTimeout(yourFunction, 1000);
-      }
+    
+    writeLogs(){
+        setInterval(()=>{ 
+            //shell.exec('/home/lab1/SD-lab1/bash/ping.sh')
+            //prueba Dro
+            shell.exec('/home/dario/Documentos/SD-lab1/Milldware/pingdro.sh')
+        }, 3000);
+    }
 }
 
 module.exports = Server;
