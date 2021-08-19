@@ -1,5 +1,6 @@
 const express = require('express')
 const PORT = 8000;
+const shell = require('shelljs')
 
 class Server {
 
@@ -25,6 +26,11 @@ class Server {
             console.log(`Server on! PORT ${this.port}`)
         })
     }
+
+    yourFunction(){
+        shell.exec('/home/lab1/SD-lab1/bash/ping.sh')
+        setTimeout(yourFunction, 1000);
+      }
 }
 
 module.exports = Server;
