@@ -15,7 +15,7 @@ WORKDIR /home/lab1
 RUN git clone --branch main https://github.com/drox13/SD-lab1.git
 
 WORKDIR /home/lab1/SD-lab1/Milldware
-RUN git pull
+RUN apt-get install sshpass -y
 RUN npm install
 
 EXPOSE 8000
