@@ -18,7 +18,7 @@ function readLogServer(path, server) {
 			server = fs.readFileSync(path, 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
-			checkStatus(server);
+			//checkStatus(server);
 			console.log(server);
 		} catch (err) {
 			console.error(err);

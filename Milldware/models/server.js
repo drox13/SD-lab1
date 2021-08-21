@@ -1,6 +1,4 @@
 const express = require('express');
-const shell = require('shelljs');
-const fs = require('fs');
 const PORT = 8000;
 
 class Server {
