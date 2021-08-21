@@ -42,8 +42,8 @@ readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
 
 const getLogs = (req, res) => {
 	res.render('home', {
-		infoServer1: myServer1,
-		infoServer2: myServer2,
+		name: 'Andres',
+		age: '25',
 	});
 };
 
