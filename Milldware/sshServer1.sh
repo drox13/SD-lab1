@@ -3,4 +3,4 @@
 
 #sshpass -p "server1" ssh 5dd88@172.17.0.2 < restoreServer1.sh
 
-docker exec server1 bash - "./restoreServer1.sh"
+docker exec server1 bash -c "pwd"; "./restoreServer1.sh"
