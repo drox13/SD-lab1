@@ -28,6 +28,7 @@ function readLogServer(path, server) {
 
 function checkStatus(server) {
 	let data = server.split(' ');
+	console.log('data: ', data);
 	for (let index = 0; index < data.length; index++) {
 		const status = data[0];
 		if (status != 200) {
@@ -35,15 +36,15 @@ function checkStatus(server) {
 	}
 }
 
+writeLogs();
+readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', myServer1);
+readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
+
 const getLogs = (req, res) => {
 	res.render('home', {
 		infoServer1: myServer1,
 		infoServer2: myServer2,
 	});
 };
-
-writeLogs();
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', myServer1);
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
 
 module.exports = getLogs;
