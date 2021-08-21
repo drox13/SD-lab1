@@ -1,7 +1,8 @@
 const shell = require('shelljs');
 const fs = require('fs');
 
-var myServer = '';
+var myServer1 = '';
+var myServer2 = '';
 
 function writeLogs() {
 	setInterval(() => {
@@ -11,14 +12,14 @@ function writeLogs() {
 	}, 1000);
 }
 
-function readLogServer(path) {
+function readLogServer(path, server) {
 	setInterval(() => {
 		try {
-			myServer = fs.readFileSync(path, 'utf8');
+			server = fs.readFileSync(path, 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
-			checkStatus(myServer);
-			console.log(myServer);
+			checkStatus(server);
+			console.log(server);
 		} catch (err) {
 			console.error(err);
 		}
@@ -36,13 +37,13 @@ function checkStatus(server) {
 
 const getLogs = (req, res) => {
 	res.render('home', {
-		infoServer1: server1,
-		infoServer2: server2,
+		infoServer1: myServer1,
+		infoServer2: myServer2,
 	});
 };
 
 writeLogs();
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log');
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log');
+readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', myServer1);
+readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
 
 module.exports = getLogs;
