@@ -36,15 +36,16 @@ function checkStatus(server) {
 	}
 }
 
-writeLogs();
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', myServer1);
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
-
 const getLogs = (req, res) => {
+	console.log('estoy dentro de getLogs');
 	res.render('home', {
 		name: 'Andres',
 		age: '25',
 	});
 };
+
+writeLogs();
+readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', myServer1);
+readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
 
 module.exports = getLogs;
