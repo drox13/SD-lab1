@@ -72,7 +72,7 @@ const getLogs = (req, res) => {
 	res.render('home', {
 		infoServer1: myServer1,
 		infoServer2: myServer2,
-		isEnable1: isEnable1,
+		isEnableS1: isEnableS1,
 		isEnableS2: isEnableS2,
 	});
 };
