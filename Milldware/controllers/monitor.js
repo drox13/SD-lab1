@@ -18,7 +18,7 @@ function readLogServer1() {
 			myServer1 = fs.readFileSync('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
-			//checkStatus(server);
+			checkStatus(myServer1);
 			console.log(myServer1);
 		} catch (err) {
 			console.error(err);
@@ -32,7 +32,7 @@ function readLogServer2() {
 			myServer2 = fs.readFileSync('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
-			//checkStatus(server);
+			checkStatus(myServer2);
 			console.log(myServer2);
 		} catch (err) {
 			console.error(err);
@@ -46,6 +46,7 @@ function checkStatus(server) {
 	for (let index = 0; index < data.length; index++) {
 		const status = data[0];
 		if (status != 200) {
+			console.log('Error en el server');
 		}
 	}
 }
