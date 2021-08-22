@@ -3,8 +3,6 @@ const fs = require('fs');
 
 var myServer1 = '';
 var myServer2 = '';
-var isEnableS1 = false;
-var isEnableS2 = false;
 
 function writeLogs() {
 	setInterval(() => {
@@ -56,13 +54,13 @@ function checkStatusServerOne() {
 
 function checkStatusServerTwo() {
 	let data = myServer2.split(' ');
-	console.log('data: ', data);
-	for (let index = 0; index < data.length; index++) {
-		const status = data[0];
-		if (status != 200) {
-			isEnableS2 = true;
-			console.log(isEnableS2);
-		}
+	let btn = document.getElementById('btnServer2');
+	const status = data[0];
+	if (status != 200) {
+		btn.disabled = false;
+		console.log(btn);
+	} else {
+		btn.disabled = true;
 	}
 }
 
@@ -72,8 +70,6 @@ const getLogs = (req, res) => {
 	res.render('home', {
 		infoServer1: myServer1,
 		infoServer2: myServer2,
-		isEnableS1: isEnableS1,
-		isEnableS2: isEnableS2,
 	});
 };
 
