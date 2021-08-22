@@ -3,7 +3,6 @@ const fs = require('fs');
 
 var myServer1 = '';
 var myServer2 = '';
-var testMsg = 'Mensaje bien chido';
 
 function writeLogs() {
 	setInterval(() => {
@@ -13,14 +12,28 @@ function writeLogs() {
 	}, 1000);
 }
 
-function readLogServer(path, server) {
+function readLogServer1() {
 	setInterval(() => {
 		try {
-			server = fs.readFileSync(path, 'utf8');
+			myServer1 = fs.readFileSync('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
 			//checkStatus(server);
-			console.log(server);
+			console.log(myServer1);
+		} catch (err) {
+			console.error(err);
+		}
+	}, 1000);
+}
+
+function readLogServer2() {
+	setInterval(() => {
+		try {
+			myServer2 = fs.readFileSync('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', 'utf8');
+			//Ruta DRO
+			//myServer = fs.readFileSync(path, 'utf8');
+			//checkStatus(server);
+			console.log(myServer2);
 		} catch (err) {
 			console.error(err);
 		}
@@ -41,13 +54,13 @@ const getLogs = (req, res) => {
 	console.log('estoy dentro de getLogs');
 	console.log(myServer2, 'test');
 	res.render('home', {
-		infoServer1: testMsg,
+		infoServer1: myServer1,
 		infoServer2: myServer2,
 	});
 };
 
 writeLogs();
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', myServer1);
-readLogServer('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', myServer2);
+readLogServer();
+readLogServer();
 
 module.exports = getLogs;
