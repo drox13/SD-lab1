@@ -39,8 +39,8 @@ function checkStatus(server) {
 const getLogs = (req, res) => {
 	console.log('estoy dentro de getLogs');
 	res.render('home', {
-		name: 'Andres',
-		age: '25',
+		infoServer1: myServer1,
+		infoServer2: myServer2,
 	});
 };
 
