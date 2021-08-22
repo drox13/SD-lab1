@@ -3,6 +3,8 @@ const fs = require('fs');
 
 var myServer1 = '';
 var myServer2 = '';
+var isEnableS1 = false;
+var isEnableS2 = false;
 
 function writeLogs() {
 	setInterval(() => {
@@ -18,7 +20,7 @@ function readLogServer1() {
 			myServer1 = fs.readFileSync('/home/lab1/SD-lab1/Milldware/lastLogServer1.log', 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
-			checkStatus(myServer1);
+			checkStatusServerOne();
 			console.log(myServer1);
 		} catch (err) {
 			console.error(err);
@@ -32,7 +34,7 @@ function readLogServer2() {
 			myServer2 = fs.readFileSync('/home/lab1/SD-lab1/Milldware/lastLogServer2.log', 'utf8');
 			//Ruta DRO
 			//myServer = fs.readFileSync(path, 'utf8');
-			checkStatus(myServer2);
+			checkStatusServerTwo();
 			console.log(myServer2);
 		} catch (err) {
 			console.error(err);
@@ -40,13 +42,26 @@ function readLogServer2() {
 	}, 1000);
 }
 
-function checkStatus(server) {
-	let data = server.split(' ');
+function checkStatusServerOne() {
+	let data = myServer1.split(' ');
 	console.log('data: ', data);
 	for (let index = 0; index < data.length; index++) {
 		const status = data[0];
 		if (status != 200) {
-			console.log('Error en el server');
+			isEnableS1 = true;
+			console.log(isEnableS1);
+		}
+	}
+}
+
+function checkStatusServerTwo() {
+	let data = myServer2.split(' ');
+	console.log('data: ', data);
+	for (let index = 0; index < data.length; index++) {
+		const status = data[0];
+		if (status != 200) {
+			isEnableS2 = true;
+			console.log(isEnableS2);
 		}
 	}
 }
@@ -57,6 +72,8 @@ const getLogs = (req, res) => {
 	res.render('home', {
 		infoServer1: myServer1,
 		infoServer2: myServer2,
+		isEnable1: isEnable1,
+		isEnableS2: isEnableS2,
 	});
 };
 
