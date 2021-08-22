@@ -3,6 +3,7 @@ const fs = require('fs');
 
 var myServer1 = '';
 var myServer2 = '';
+var testMsg = 'Mensaje bien chido';
 
 function writeLogs() {
 	setInterval(() => {
@@ -38,9 +39,9 @@ function checkStatus(server) {
 
 const getLogs = (req, res) => {
 	console.log('estoy dentro de getLogs');
-	console.log(myServer2);
+	console.log(myServer2, 'test');
 	res.render('home', {
-		infoServer1: myServer1,
+		infoServer1: testMsg,
 		infoServer2: myServer2,
 	});
 };
