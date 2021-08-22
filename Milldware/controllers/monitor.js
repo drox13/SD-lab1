@@ -38,6 +38,7 @@ function checkStatus(server) {
 
 const getLogs = (req, res) => {
 	console.log('estoy dentro de getLogs');
+	console.log(myServer2);
 	res.render('home', {
 		infoServer1: myServer1,
 		infoServer2: myServer2,
