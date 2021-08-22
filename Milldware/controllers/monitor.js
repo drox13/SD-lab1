@@ -60,7 +60,7 @@ const getLogs = (req, res) => {
 };
 
 writeLogs();
-readLogServer();
-readLogServer();
+readLogServer1();
+readLogServer2();
 
 module.exports = getLogs;
