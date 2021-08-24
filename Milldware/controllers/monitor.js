@@ -46,22 +46,14 @@ function checkStatusServerOne() {
 	for (let index = 0; index < data.length; index++) {
 		const status = data[0];
 		if (status != 200) {
-			isEnableS1 = true;
-			console.log(isEnableS1);
 		}
 	}
 }
 
 function checkStatusServerTwo() {
 	let data = myServer2.split(' ');
-	let btn = document.getElementById('btnServer2');
 	const status = data[0];
-	if (status != 200) {
-		btn.disabled = false;
-		console.log(btn);
-	} else {
-		btn.disabled = true;
-	}
+	return status;
 }
 
 const getLogs = (req, res) => {
@@ -73,8 +65,19 @@ const getLogs = (req, res) => {
 	});
 };
 
+const getStatus = (req, res) => {
+	if (checkStatusServerTwo() === '200') {
+		res.send({ status: true });
+	} else {
+		res.send({ status: false });
+	}
+};
+
 writeLogs();
 readLogServer1();
 readLogServer2();
 
-module.exports = getLogs;
+module.exports = {
+	getLogs,
+	getStatus,
+};

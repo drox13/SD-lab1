@@ -19,6 +19,7 @@ class Server {
 
 	routes() {
 		this.app.use('/', require('../routes/monitor'));
+		this.app.use('/', require('../routes/monitor'));
 	}
 
 	listen() {
